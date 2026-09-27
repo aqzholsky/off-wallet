@@ -1,0 +1,24 @@
+{
+  "name": "off-wallet",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.1.2",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "pnpm -r --if-present typecheck",
+    "lint": "biome check .",
+    "fix": "biome check --write .",
+    "format": "biome format --write .",
+    "test": "vitest run",
+    "build": "pnpm --filter web build",
+    "e2e": "pnpm --filter web e2e",
+    "audit": "pnpm audit --prod"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.14",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  }
+}

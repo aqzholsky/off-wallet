@@ -1,0 +1,55 @@
+{
+  "source": "b2binpay_common 26.1.0 (commit 0521572), Cerberus validator schemas, mainnet patterns only. Entries marked source 'derived' were written for this repository because the upstream package defines no pattern for that chain.",
+  "patterns": {
+    "btc-legacy": [
+      {"pattern": "^1[1-9a-km-zA-HJ-NP-Z]{25,33}$", "source": "b2binpay_common/validators/bitcoin.py:47", "note": "Legacy P2PKH"}
+    ],
+    "btc-segwit": [
+      {"pattern": "^bc1[02-9ac-hj-np-z]{6,87}$", "source": "b2binpay_common/validators/bitcoin.py:43", "note": "bech32, lower case only"},
+      {"pattern": "^bc1[02-9ac-hj-np-zAC-HJ-NP-Z]{6,87}$", "source": "b2binpay_common/validators/bitcoin.py:42", "note": "bech32, mixed case allowed"}
+    ],
+    "btc-taproot": [
+      {"pattern": "^bc1[02-9ac-hj-np-z]{6,87}$", "source": "b2binpay_common/validators/bitcoin.py:43", "note": "bech32/bech32m share the charset; bc1p prefix is witness v1"},
+      {"pattern": "^bc1p[02-9ac-hj-np-z]{58}$", "source": "derived", "note": "32-byte program: 1 version char + 52 data chars + 6 checksum chars"}
+    ],
+    "eth": [
+      {"pattern": "^0x[0-9a-f]{40}$", "source": "b2binpay_common/validators/ethereum.py:57", "note": "Lower-case hex only; EIP-55 mixed case is rejected upstream, so the test lowercases first", "applyTo": "lowercase"}
+    ],
+    "bsc": [
+      {"pattern": "^0x[0-9a-f]{40}$", "source": "b2binpay_common/validators/ethereum.py:57", "note": "Inherits EthAddress (validators/bsc.py:67)", "applyTo": "lowercase"}
+    ],
+    "polygon": [
+      {"pattern": "^0x[0-9a-f]{40}$", "source": "b2binpay_common/validators/ethereum.py:57", "note": "Inherits EthAddress (validators/polygon.py:66)", "applyTo": "lowercase"}
+    ],
+    "arbitrum": [
+      {"pattern": "^0x[0-9a-f]{40}$", "source": "b2binpay_common/validators/ethereum.py:57", "note": "Inherits EthAddress (validators/arbitrum.py:66)", "applyTo": "lowercase"}
+    ],
+    "optimism": [
+      {"pattern": "^0x[0-9a-f]{40}$", "source": "b2binpay_common/validators/ethereum.py:57", "note": "Inherits EthAddress (validators/optimism.py:66)", "applyTo": "lowercase"}
+    ],
+    "base": [
+      {"pattern": "^0x[0-9a-f]{40}$", "source": "b2binpay_common/validators/ethereum.py:57", "note": "Inherits EthAddress (validators/base.py:66)", "applyTo": "lowercase"}
+    ],
+    "avalanche": [
+      {"pattern": "^0x[0-9a-f]{40}$", "source": "b2binpay_common/validators/ethereum.py:57", "note": "Inherits EthAddress (validators/avalanche.py:66)", "applyTo": "lowercase"}
+    ],
+    "tron": [
+      {"pattern": "^T[a-km-zA-HJ-NP-Z1-9]{24,34}$", "source": "b2binpay_common/validators/tron.py:78", "note": "Base58check address, T prefix"}
+    ],
+    "cosmos": [
+      {"pattern": "^cosmos1[02-9ac-hj-np-z]{38}$", "source": "derived", "note": "bech32 hrp cosmos, 20-byte program: 32 data chars + 6 checksum chars"}
+    ],
+    "osmosis": [
+      {"pattern": "^osmo1[02-9ac-hj-np-z]{38}$", "source": "derived", "note": "bech32 hrp osmo, 20-byte program"}
+    ],
+    "thorchain": [
+      {"pattern": "^thor1[02-9ac-hj-np-z]{38}$", "source": "derived", "note": "bech32 hrp thor, 20-byte program"}
+    ],
+    "solana-a": [
+      {"pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$", "source": "b2binpay_common/validators/solana.py:73", "note": "Base58 public key"}
+    ],
+    "solana-b": [
+      {"pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$", "source": "b2binpay_common/validators/solana.py:73", "note": "Base58 public key"}
+    ]
+  }
+}

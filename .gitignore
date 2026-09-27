@@ -1,0 +1,33 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build output
+dist/
+*.tsbuildinfo
+
+# test output
+coverage/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# editors and OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# logs and env
+*.log
+npm-debug.log*
+pnpm-debug.log*
+.env
+.env.*
+!.env.example
+
+# tool state
+.omc/
+.claude/settings.local.json
