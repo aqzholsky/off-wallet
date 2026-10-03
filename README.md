@@ -2,6 +2,10 @@
 
 Offline multi-chain address generator. A BIP-39 mnemonic (typed or generated) becomes addresses for 16 profiles across 13 networks, derived entirely in the browser. No network, no storage.
 
+## Live Demo
+
+**Try Off-Wallet:** https://off-wallet.vercel.app
+
 ## Run
 
 Requires Node ≥ 22 and pnpm 11.1.2.
